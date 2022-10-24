@@ -24,7 +24,7 @@ I got challenged to make a secure PHP MVC app in a few days without using any fr
 
 ### Install and use on your own
 Using this application should be very simple following these steps;
-- Upload the files on a host (with SSL enabled)
+- Upload the files on a host (with SSL enabled) and route traffic through /public/ folder
 - Fill in your database info in app/config/database.php and generate a random salt for app/config/app.php
 - Upload the SQL (pasted.sql) in your database
 - Ready to use! Login to the admin account with password Test123! and change the password.
