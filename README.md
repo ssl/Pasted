@@ -10,8 +10,9 @@ Simple and secure pastebin alternative. Encrypts your content client-side with A
 - Admin panel which can enable/disable registration
 - Should be pretty secure against most basic things (does not prevent things like rate limiting)
 
-### Screenshots
-https://imgur.com/a/624zWpZ
+### Demo / Screenshots
+- https://pasted.pw
+- https://imgur.com/a/624zWpZ
 
 ### Objective
 I got challenged to make a secure PHP MVC app in a few days without using any frameworks. The requirements;
