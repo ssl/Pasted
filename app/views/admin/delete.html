@@ -1,0 +1,25 @@
+<main role="main" class="container">
+    <br><br><a href="/"><i class="icon-arrow-left icons"></i> Back to home</a>
+    
+    <h1 class="mt-5">Pasted _ delete</h1>
+    <p class="lead">Welcome {session[username]}</p>
+    
+    <div class="card">
+        <div class="card-body">
+            <p>Are u sure u want to delete account <b>{%data username}</b>?</p>
+            <form method="post">
+                <input type=hidden hidden name="csrf" value="{session[csrfToken]}">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="pastes" value="delete" checked>
+                    <label class="form-check-label" for="exampleRadios1">Delete all pastes of this user</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="pastes" value="move">
+                    <label class="form-check-label" for="exampleRadios2">Move all pastes of this user to <b>Anonymous</b></label>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Delete</button>
+            </form>
+        </div>
+    </div>
+</main>

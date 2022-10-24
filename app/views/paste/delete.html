@@ -1,0 +1,15 @@
+<main role="main" class="container">
+    <br><br><a href="/"><i class="icon-arrow-left icons"></i> Back to home</a>
+    <h1 class="mt-5">Pasted _ delete</h1>
+    <p class="lead">Welcome {session[username]}</p>
+    
+    <div class="card">
+        <div class="card-body">
+            <p>Are u sure u want to delete paste <b>{%data token}</b>?</p>
+            <form method="post">
+                <input type=hidden hidden name="csrf" value="{session[csrfToken]}">
+                <button type="submit" class="btn btn-primary">Delete</button>
+            </form>
+        </div>
+    </div>
+</main>

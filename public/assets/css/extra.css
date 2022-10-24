@@ -1,0 +1,12 @@
+.special-card {
+    border-radius: 0px;
+    border-top: 0px;
+}
+
+.table th {
+    border-top: 0px;
+}
+
+.table {
+    margin-bottom: 0px;
+}

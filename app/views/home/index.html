@@ -1,0 +1,39 @@
+<main role="main" class="container">
+    <h1 class="mt-5">Pasted</h1>
+    <p class="lead">Simple and secure pastebin alternative. Encrypts your content client-side with AES</p>
+
+    <div class="card">
+        <div class="card-body">
+            
+            <form id="paste" name="paste" method="post">
+                {message}
+                <input type=hidden hidden name="csrf" value="{session[csrfToken]}">
+
+                <div class="form-group">
+                    <label for="content">Paste content:</label>
+                    <textarea class="form-control" name="content" id="content" rows="12"></textarea>
+                </div>
+                
+                <p>Pasted by <b>{userOrAnonymous[]}</b></p>
+
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input" checked name="encrypt" id="encrypt">
+                    <label class="custom-control-label" for="encrypt">Encrypt paste with AES</label>
+                    <div class="input-group mb-3" id="password-box">
+                        <input type="text" class="form-control" id="password" placeholder="Password" autocomplete="off">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-primary" id="generate" type="button">Generate random</button>
+                        </div>
+                    </div>
+                </div>
+        
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <br>You can manage your pasted content with an account. <a href="/account/signup">Sign up or login here</a>
+</main>
+
+<!-- Load encrypt js -->
+<script src="/assets/js/encrypt.js"></script>

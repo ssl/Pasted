@@ -1,0 +1,44 @@
+<main role="main" class="container">
+    <br><br><a href="/"><i class="icon-arrow-left icons"></i> Back to home</a>
+
+    <h1 class="mt-5">Pasted _ admin</h1>
+    <p class="lead">Welcome {session[username]}</p>
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="/admin">Pastes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="/admin/accounts">Accounts</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/settings">Settings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/account/index">My Account</a>
+        </li>
+    </ul>
+
+    <div class="card special-card">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Rank</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%foreach account}
+                <tr>
+                    <td scope="row"><b>{account->id}</b></td>
+                    <td>{account->username}</td>
+                    <td>{account->rank}</td>
+                    <td><a href="/admin/delete/{account->id}"><i class="icon-trash icons"></i></a></td>
+                </tr>
+                {%/foreach}
+            </tbody>
+        </table>
+    </div>
+</main>

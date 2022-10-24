@@ -1,0 +1,47 @@
+<main role="main" class="container">
+    <br><br><a href="/"><i class="icon-arrow-left icons"></i> Back to home</a>
+    
+    <h1 class="mt-5">Pasted _ account</h1>
+    <p class="lead">Welcome {session[username]}</p>
+    
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="/account/index">Pastes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="/account/settings">Settings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/account/logout">Logout</a>
+        </li>
+        {%if userIsAdmin}
+        <li class="nav-item">
+            <a class="nav-link" href="/admin">Admin</a>
+        </li>
+        {%/if}
+    </ul>
+
+    <div class="card special-card">
+        <div class="card-body">
+            <h5 class="card-title">Change password</h5>
+            <form method="post">
+                <input type=hidden hidden name="csrf" value="{session[csrfToken]}">
+                {message}
+                <div class="form-group">
+                    <label for="currentPassword">Current password</label>
+                    <input type="password" class="form-control" id="currentPassword" name="currentPassword" placeholder="Enter current password">
+                    <small class="form-text text-muted">We need this to confirm ownership.</small>
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">New password</label>
+                    <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="newPassword2">Re-type password</label>
+                    <input type="password" class="form-control" id="newPassword2" name="newPassword2" placeholder="Password again..">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</main>

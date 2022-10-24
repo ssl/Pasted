@@ -1,0 +1,30 @@
+<main role="main" class="container">
+    <h1 class="mt-5">Pasted</h1>
+    <p class="lead">Simple and secure pastebin alternative. Encrypts your content client-side with AES</p>
+    <div class="card">
+        <div class="card-body">
+            
+            <form id="paste" name="paste" method="post">
+                <div class="form-group">
+                    <textarea class="form-control" id="content" rows="20">{%data content}</textarea>
+                </div>
+
+                {%if isEncrypted}
+                <hr>
+                <p>This paste is encrypted. Fill in the password to decrypt the content.</p>
+                <div class="input-group mb-3" id="password-box">
+                    <input type="text" class="form-control" id="password" placeholder="Password" autocomplete="off">
+                    <div class="input-group-append">
+                    <button class="btn btn-outline-primary" id="decrypt" type="button">Decrypt</button>
+                    </div>
+                </div>
+                {%/if}
+            </form>
+        </div>
+    </div>
+    <br>
+    <p>Pasted by <b>{%data username}</b></p>
+</main>
+
+<!-- Load decrypt js -->
+<script src="/assets/js/decrypt.js"></script>

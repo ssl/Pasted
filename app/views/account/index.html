@@ -1,0 +1,46 @@
+<main role="main" class="container">
+
+    <br><br><a href="/"><i class="icon-arrow-left icons"></i> Back to home</a>
+    <h1 class="mt-5">Pasted _ account</h1>
+    <p class="lead">Welcome {session[username]}</p>
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="/account/index">Pastes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/account/settings">Settings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/account/logout">Logout</a>
+        </li>
+        {%if userIsAdmin}
+        <li class="nav-item">
+            <a class="nav-link" href="/admin">Admin</a>
+        </li>
+        {%/if}
+    </ul>
+
+    <div class="card special-card">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">URL</th>
+                    <th scope="col">Encrypted</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%foreach paste}
+                <tr>
+                    <td scope="row"><b>{paste->id}</b></td>
+                    <td><a target=_blank href="/paste/view/{paste->token}">paste/view/{paste->token}</a></td>
+                    <td><i class="icon-{paste->icon} icons"></i></td>
+                    <td><a href="/paste/delete/{paste->token}"><i class="icon-trash icons"></i></a></td>
+                </tr>
+                {%/foreach}
+            </tbody>
+        </table>
+    </div>
+</main>

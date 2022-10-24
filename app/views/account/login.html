@@ -1,0 +1,20 @@
+<main role="main" class="container">
+    <br><br><a href="/"><i class="icon-arrow-left icons"></i> Back to home</a>
+    
+    <form class="col-md-6" method="post">
+        <h1 class="mt-5">Login</h1>
+        {message}
+        <input type=hidden hidden name="csrf" value="{session[csrfToken]}">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" placeholder="Enter username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password" autocomplete="off">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <small class="form-text text-muted">No account? <a href="/account/signup">Sign up here</a>.</small>
+    </form>
+    </div>
+</main>

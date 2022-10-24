@@ -1,0 +1,38 @@
+<main role="main" class="container">
+    <br><br><a href="/"><i class="icon-arrow-left icons"></i> Back to home</a>
+    
+    <h1 class="mt-5">Pasted _ admin</h1>
+    <p class="lead">Welcome {session[username]}</p>
+    
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link" href="/admin">Pastes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/accounts">Accounts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/admin/settings">Settings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/account/index">My Account</a>
+        </li>
+    </ul>
+    
+    <div class="card special-card">
+        <div class="card-body">
+            <h5 class="card-title">Website settings</h5>
+            <form method="post">
+                <input type=hidden hidden name="csrf" value="{session[csrfToken]}">
+                {message}
+                <div class="custom-control custom-checkbox mr-sm-2">
+                    <input {%data registration-check} type="checkbox" class="custom-control-input" name="enable-registration" id="enable-registration">
+                    <label class="custom-control-label" for="enable-registration">Enable registration</label>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</main>

@@ -1,0 +1,34 @@
+<main role="main" class="container">
+    <br><br><a href="/"><i class="icon-arrow-left icons"></i> Back to home</a>
+
+    <h1 class="mt-5">Pasted _ logout</h1>
+    <p class="lead">Welcome {session[username]}</p>
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="/account/index">Pastes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/account/settings">Settings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="/account/logout">Logout</a>
+        </li>
+        {%if userIsAdmin}
+        <li class="nav-item">
+            <a class="nav-link" href="/admin">Admin</a>
+        </li>
+        {%/if}
+    </ul>
+
+    <div class="card special-card">
+        <div class="card-body">
+            {message}
+            <p>Are u sure u want to logout?</p>
+            <form method="post">
+                <input type=hidden hidden name="csrf" value="{session[csrfToken]}">
+                <button type="submit" class="btn btn-primary">Logout</button>
+            </form>
+        </div>
+    </div>
+</main>
