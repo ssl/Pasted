@@ -1,5 +1,7 @@
 # Pasted
-Simple and secure pastebin alternative. Encrypts your content client-side with AES.
+Simple and secure pastebin alternative. Encrypts your content client-side with AES. 
+
+Source code of pasted.pw.
 
 ### Features
 - Post (client-side AES encrypted) pastes (Anonymous or with your account)
@@ -14,18 +16,9 @@ Simple and secure pastebin alternative. Encrypts your content client-side with A
 - https://pasted.pw
 - https://imgur.com/a/624zWpZ
 
-### Objective
-I got challenged to make a secure PHP MVC app in a few days without using any frameworks. The requirements;
-- application should not use a framework
-- application should implement MVC in object oriented PHP
-- source code is well formatted, clear and readable
-- no other files should be in the webroot besides the index.php and optional static resources
-- application should use PHP session functionality
-- application should be secure (think of protection against SQL injection, XSS, CSRF, missing authorization)
-
 ### Install and use on your own
 Using this application should be very simple following these steps;
 - Upload the files on a host (with SSL enabled) and route traffic through /public/ folder
 - Fill in your database info in app/config/database.php and generate a random salt for app/config/app.php
 - Upload the SQL (pasted.sql) in your database
-- Ready to use! Login to the admin account with password Test123! and change the password.
+- Ready to use! Create your (admin) account or change the password of the 'admin' user.
