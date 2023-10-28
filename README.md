@@ -13,7 +13,7 @@ Source code of pasted.pw.
 - Should be pretty secure against most basic things (does not prevent things like rate limiting)
 
 ### Demo / Screenshots
-- https://pasted.pw
+- https://pasted.za.ax
 - https://imgur.com/a/624zWpZ
 
 ### Install and use on your own
