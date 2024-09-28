@@ -18,7 +18,7 @@ class Paste_model extends Model {
     public function paste($content, $encrypted, $username) {
         $database = Database::openConnection();
 
-        $token = bin2hex(random_bytes(16));
+        $token = bin2hex(random_bytes(24));
 
         $database->prepare('INSERT INTO `paste` (`token`, `encrypted`, `content`, `username`) VALUES (:token, :encrypted, :content, :username);');
         $database->bindValue(':token', $token);
@@ -30,7 +30,9 @@ class Paste_model extends Model {
             throw new Exception("Something unexpected went wrong");
         }
 
-        return $token;
+        $paste = $this->getPasteByToken($token);
+
+        return $paste;
     }
 
     /**
@@ -142,5 +144,25 @@ class Paste_model extends Model {
         $pastes = $database->fetchAll();
 
         return $pastes;
+    }
+
+    /**
+     * Update token
+     *
+     * @param string $token
+     * @return void
+     */
+    public function updateToken($token, $newToken) {
+        $database = Database::openConnection();
+
+        $database->prepare('UPDATE `paste` SET token = :newToken WHERE token = :token');
+        $database->bindValue(':token', $token);
+        $database->bindValue(':newToken', $newToken);
+
+        if(!$database->execute()) {
+            throw new Exception("Something unexpected went wrong");
+        }
+
+        return true;
     }
 }

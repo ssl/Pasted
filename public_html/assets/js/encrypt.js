@@ -18,6 +18,13 @@ document.getElementById("encrypt").onclick = function() {
      }
 }
 
+document.getElementById("short").onclick = function() {
+    if (document.getElementById('short').checked) {
+        document.getElementById('shorturl').style.display = 'flex';
+     } else {
+        document.getElementById('shorturl').style.display = 'none';
+     }
+}
 
 document.getElementById("generate").onclick = function() {
     var chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()[]{}=+-_;:|,.?";

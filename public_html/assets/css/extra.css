@@ -10,3 +10,7 @@
 .table {
     margin-bottom: 0px;
 }
+
+.hide {
+    display: none;
+}

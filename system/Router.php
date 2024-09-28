@@ -19,6 +19,13 @@ class Router {
         $method = isset($parts[2]) ? $parts[2] : 'index';
         $method = empty($method) ? 'index' : $method;
 
+        // Check if url is short url view
+        if($controller == 'V' && $method != 'index') {
+            $controller = 'Paste';
+            $args = [$method];
+            $method = 'View';
+        }
+
         // Check for nasty chars
         if(preg_match('/[^A-Za-z0-9]/', $controller) ||
            preg_match('/[^A-Za-z0-9]/', $method)) {
@@ -40,7 +47,7 @@ class Router {
             return $this->exitPage(404);
         }
 
-        $args = isset($parts[3]) ? [$parts[3]] : [];
+        $args = !isset($args) ? (isset($parts[3]) ? [$parts[3]] : []) : $args;
 
         // Good to go, send method and args to the correct controller
         $this->controller = new $controller;

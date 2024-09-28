@@ -22,7 +22,7 @@ class Account_model extends Model {
 
         $account = $database->fetch();
 
-        if (!password_verify(salt . $password, $account['password'])) {
+        if (!password_verify($password, $account['password'])) {
             throw new Exception("Password is incorrect");
         }
 
@@ -46,7 +46,7 @@ class Account_model extends Model {
         
         $database->prepare('UPDATE `accounts` SET password = :password WHERE id = :id');
         $database->bindValue(':id', $id);
-        $database->bindValue(':password', password_hash(salt . $password, PASSWORD_BCRYPT));
+        $database->bindValue(':password', password_hash($password, PASSWORD_BCRYPT));
         
         if(!$database->execute()) {
             throw new Exception("Something unexpected went wrong");
@@ -85,7 +85,7 @@ class Account_model extends Model {
 
         $database->prepare('INSERT INTO `accounts` (`username`, `password`) VALUES (:username, :password);');
         $database->bindValue(':username', $username);
-        $database->bindValue(':password', password_hash(salt . $password, PASSWORD_BCRYPT));
+        $database->bindValue(':password', password_hash($password, PASSWORD_BCRYPT));
 
         if(!$database->execute()) {
             throw new Exception("Something unexpected went wrong");

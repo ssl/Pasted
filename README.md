@@ -1,24 +1,24 @@
 # Pasted
-Simple and secure pastebin alternative. Encrypts your content client-side with AES. 
-
-Source code of pasted.pw.
+A simple and secure Pastebin alternative that encrypts content client-side using AES.
 
 ### Features
-- Post (client-side AES encrypted) pastes (Anonymous or with your account)
-- View/delete all your pastes via an account
-- Login, register and change password functionallity
-- Admin panel which can view/delete all pastes (ofcourse not able to view encrypted pastes content without the password)
-- Admin panel which can view/delete users
-- Admin panel which can enable/disable registration
-- Should be pretty secure against most basic things (does not prevent things like rate limiting)
+- Create client-side AES-encrypted pastes (anonymous or linked to your account)
+- Build-in short or custom URLs to the paste
+- View and delete all your pastes via your account
+- Login, registration, and password change functionality
+- Admin panel to manage pastes (unable to view encrypted content without the correct password)
+- Admin panel to manage users (view/delete users)
+- Admin control to enable/disable; user registration, short/custom URLs
+- Built with security in mind, addressing basic vulnerabilities (does not include rate limiting)
 
 ### Demo / Screenshots
-- https://pasted.za.ax
-- https://imgur.com/a/624zWpZ
+- Live Demo: [https://pasted.za.ax](https://pasted.za.ax)
+- Screenshots: [https://imgur.com/a/624zWpZ](https://imgur.com/a/624zWpZ)
 
-### Install and use on your own
-Using this application should be very simple following these steps;
-- Upload the files on a host (with SSL enabled) and route traffic through /public/ folder
-- Fill in your database info in app/config/database.php and generate a random salt for app/config/app.php
-- Upload the SQL (pasted.sql) in your database
-- Ready to use! Create your (admin) account or change the password of the 'admin' user.
+### Installation Guide
+Setting up this application is simple. Follow these steps:
+
+1. Upload the files to a web host (ensure SSL is enabled) and route traffic through the `/public_html/` folder.
+2. Configure your database settings in `app/config/database.php`.
+3. Import the SQL file (`pasted.sql`) into your database.
+4. You're all set! Log in to the admin account with the default credentials (`admin:admin`), and be sure to change the password.

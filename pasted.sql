@@ -39,7 +39,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `username`, `password`, `rank`) VALUES
-(1, 'admin', '$2y$10$q4ZdGF3GJnmHX3K1l/4xuOUZuoL9oYLlLFM9VIwB68wRk8H2qIkLS', 7),
+(1, 'admin', '$2a$12$EMdy6yBi1htV.BVRYpj8feyllMSnD8xOsnfqdQ/bmfr/zUepgpH9e', 7),
 (2, 'Anonymous', '-', 0);
 
 -- --------------------------------------------------------
@@ -80,7 +80,8 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `param`, `value`) VALUES
-(1, 'enable-registration', '1');
+(1, 'enable-registration', '1'),
+(2, 'enable-shorturl', '1');
 
 --
 -- Indexes for dumped tables
@@ -96,7 +97,8 @@ ALTER TABLE `accounts`
 -- Indexes for table `paste`
 --
 ALTER TABLE `paste`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `token` (`token`);
 
 --
 -- Indexes for table `settings`

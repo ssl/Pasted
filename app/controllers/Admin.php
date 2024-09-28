@@ -100,11 +100,19 @@ class Admin extends Controller {
             if($this->isPOST()) {
                 $this->validateCsrfToken();
 
-                $enabled = $this->getPostValue('enable-registration') == 'on';
-                $this->model('Settings')->setSetting('enable-registration', $enabled);
+                $registration = $this->getPostValue('enable-registration') == 'on';
+                $this->model('Settings')->setSetting('enable-registration', $registration);
+
+                $shorturl = $this->getPostValue('enable-shorturl') == 'on';
+                $this->model('Settings')->setSetting('enable-shorturl', $shorturl);
             }
+
             $setting = $this->model('Settings')->getSetting('enable-registration') == '1' ? 'checked' : '';
             $this->view->renderData('registration-check', $setting);
+
+            $setting = $this->model('Settings')->getSetting('enable-shorturl') == '1' ? 'checked' : '';
+            $this->view->renderData('shorturl-check', $setting);
+            
         } catch(Exception $e) {
             return $this->view->renderErrorPage($e->getMessage());
         }

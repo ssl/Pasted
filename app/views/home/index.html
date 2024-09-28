@@ -26,6 +26,16 @@
                         </div>
                     </div>
                 </div>
+
+                {%if shortURLenabled}
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input" name="short" id="short">
+                    <label class="custom-control-label" for="short">Short/custom URL</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control hide" name="shorturl" id="shorturl" placeholder="Leave empty for auto-generated shortest URL" autocomplete="off">
+                    </div>
+                </div>
+                {%/if}
         
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
